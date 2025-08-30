@@ -4,29 +4,30 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
+                git branch: 'main',
+                    url: 'https://github.com/pankajkush711/DevOps.git',
+                    credentialsId: 'github-pat'
             }
         }
 
         stage('Build') {
             steps {
                 echo 'Building the project...'
-                // Add build commands, like:
-                // sh 'mvn clean install'
+                // Example: sh 'mvn clean install'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                // Add test commands
+                // Example: sh 'mvn test'
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'Deploying the project...'
-                // Deployment commands here
+                // Example: sh './deploy.sh'
             }
         }
     }
